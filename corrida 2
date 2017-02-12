@@ -3,7 +3,7 @@ largo=5
 i=4
 y=5
 x=4                             x=1                    x=5
-if(array[5,0]==null)true        1,0 false               6,0 null true
+if(array[5,0]==null)true        2,0 false               6,0 null true
   if(x<5/*largo*/)true                                 false
                       else if( array[0,0])false       false
                         if(ban) true                  false
@@ -13,7 +13,7 @@ z=4
 for 0<3 true
 array[0,5]== null false           4,5 false           5,5 true
                                                       4>5 false
-array[0,3]== null false           4,5 false
+array[0,3]== null false           4,3 false
 if(x==0)true                      false               false
   pintar(array[0,4])                3,4                4,4
 z=5
