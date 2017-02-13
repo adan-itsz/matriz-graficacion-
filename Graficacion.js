@@ -1,3 +1,4 @@
+
 var ancho = prompt("ancho de la matriz");
 var alto1 = prompt("alto de la matriz");
 var celda;
@@ -15,13 +16,11 @@ for(var i=0;i<alto1;i++){   //inicializar matriz
 
 //se obtiene el body
 var body = document.getElementsByTagName("body")[0];
-
 //crear una tabla
 var tabla = document.createElement("table");
 //se le pone borde a la tabla
 tabla.style.border = "0px solid #000"
 var tblBody = document.createElement("tbody");
-
 //Crear las celdas----------------------
 for(var i=0;i<matriz.length;i++){
   //se crean el alto
@@ -51,16 +50,56 @@ var alto = tblBody.insertRow(i);//fila
 //posiciona el <tbody> debajo del elemento <table>
 tabla.appendChild(tblBody);
 body.appendChild(tabla);
-var randomFila= Math.round(Math.random()*alto1);
-var randomColumna=Math.round(Math.random()*ancho);
+
+var randomFila= Math.round(Math.random()*alto1-1);
+var randomColumna=Math.round(Math.random()*ancho-1);
 var cell=document.getElementById(randomFila+ ":"+randomColumna);
 
 cell.style.backgroundColor='red';
-
-//var index=tblBody.fil[randomFila].col[randomColumna].childNodes[0].value;
+var indiceFilas=randomFila;
+var indiceColumnas=randomColumna;
 window.alert(randomFila + " " +randomColumna);
-//index.style.backgroundColor="red";
-
-//function pintar(filaa,columnaa){
-tblBody.addEventListener("click",function myfunc(){col.style.backgroundColor="red";});
-//}
+shortcut("Up",function(){ subir(1)});
+shortcut("Down",function(){subir(2)});
+shortcut("Left",function(){lados(1)});
+shortcut("Right",function(){lados(2)});
+function subir(valor){
+  if(valor==1){
+      if(indiceFilas==0){
+        indiceFilas=alto1-1;
+      }
+      else{
+        indiceFilas--;
+        }
+  }
+  else if(valor==2){
+    if(indiceFilas==alto1-1){
+      indiceFilas=0;
+    }
+    else{
+      indiceFilas++;
+    }
+  }
+//  window.alert(indiceFilas);
+  detectarPosiciones(indiceFilas,indiceColumnas,alto1,ancho,matriz);
+}
+function lados(valor){
+  if(valor==1){
+    if(indiceColumnas==0){
+      indiceColumnas=ancho-1;
+    }
+    else{
+      indiceColumnas--;
+    }
+  }
+  else if(valor==2){
+    if(indiceColumnas==ancho-1){
+      indiceColumnas=0;
+    }
+    else{
+      indiceColumnas++;
+    }
+  }
+//window.alert(indiceColumnas);
+detectarPosiciones(indiceFilas,indiceColumnas,alto1,ancho,matriz);
+}
